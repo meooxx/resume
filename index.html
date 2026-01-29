@@ -16,7 +16,7 @@
 				font-family:
 					-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
 					Arial, sans-serif;
-				line-height: 1.35;
+				line-height: 1.4;
 				color: var(--text);
 				font-size: 9.5pt;
 				margin: 0;
@@ -41,6 +41,10 @@
 				cursor: pointer;
 				font-size: 0.8rem;
 				z-index: 999;
+				opacity: 0.8;
+			}
+			.print-btn:hover {
+				opacity: 1;
 			}
 
 			/* --- 头部设计 --- */
@@ -48,7 +52,7 @@
 				text-align: left;
 				margin-bottom: 0.4rem;
 				border-bottom: 1px solid #ccc;
-				padding-bottom: 4px;
+				padding-bottom: 1px;
 			}
 
 			.header-content {
@@ -56,15 +60,21 @@
 				justify-content: flex-start;
 				align-items: baseline;
 				flex-wrap: wrap;
-				gap: 8px;
 				line-height: 1.5;
 			}
 
 			.name {
 				font-weight: bold;
-				font-size: 0.85rem;
+				font-size: 1rem;
 				color: #000;
 				margin-right: 4px;
+				display: flex;
+				align-items: flex-end;
+			}
+			.name > a {
+				font-size: 0.5rem;
+				margin-left: 5px;
+				display: inline-block;
 			}
 			.meta-info {
 				font-size: 0.85rem;
@@ -72,16 +82,13 @@
 				display: flex;
 				align-items: center;
 				flex-wrap: wrap;
-				gap: 6px;
+				gap: 12px;
 			}
 			.role {
 				font-weight: bold;
 				color: #222;
 			}
-			.sep {
-				color: #ccc;
-				font-size: 0.8rem;
-			}
+
 			a {
 				color: var(--link);
 				text-decoration: none;
@@ -92,17 +99,18 @@
 
 			/* --- 版块 --- */
 			section {
-				margin-bottom: 0.8rem;
+				margin-bottom: 0.4rem;
 			}
 			h2 {
-				font-size: 0.9rem;
-				font-weight: 700;
+				font-size: 0.7rem;
+				font-weight: bold;
 				text-transform: uppercase;
-				margin: 0 0 0.4rem 0;
-				border-left: 3px solid var(--main);
+				margin: 0 0 0.2rem 0;
+				border-left: 2px solid var(--main);
 				padding-left: 6px;
 				line-height: 1;
 				text-align: left;
+				letter-spacing: 0.5px;
 			}
 
 			ul {
@@ -112,12 +120,13 @@
 			}
 			li {
 				margin-bottom: 3px;
-				/* text-align: justify; */
 			}
 
 			/* --- 经历模块 --- */
 			.job-item {
-				margin-bottom: 0.8rem;
+				margin-bottom: 0.4rem;
+				break-inside: avoid;
+				page-break-inside: avoid;
 			}
 			.job-head {
 				display: flex;
@@ -136,7 +145,7 @@
 				color: #333;
 			}
 			.meta-group {
-				font-size: 0.85rem;
+				font-size: 8pt;
 				color: var(--meta);
 				text-align: right;
 				white-space: nowrap;
@@ -145,25 +154,48 @@
 				margin-right: 5px;
 			}
 
+			/* --- 教育模块 --- */
 			.edu-line {
 				display: flex;
 				justify-content: space-between;
-				margin-bottom: 2px;
-				font-size: 0.95rem;
+				margin-bottom: 3px;
+				padding-left: 20px;
+				/* font-size: 8pt; */
+			}
+			.edu-status {
+				/* font-size: 8pt; */
+				color: #222;
+				/* font-weight: 500; */
 			}
 
+			/* --- 打印特定样式 --- */
 			@media print {
 				@page {
-					margin: 0.4in;
+					margin: 0.3in;
+					size: auto;
 				}
 				body {
 					padding: 0;
+					-webkit-print-color-adjust: exact;
 				}
 				.print-btn {
 					display: none;
 				}
+				section {
+					page-break-inside: auto;
+					break-inside: auto;
+				}
+				h2 {
+					break-after: avoid;
+					page-break-after: avoid;
+				}
+				a {
+					text-decoration: none;
+					color: #000;
+				}
 			}
 
+			/* --- 手机端适配 --- */
 			@media (max-width: 600px) {
 				.header-content {
 					flex-direction: column;
@@ -173,13 +205,17 @@
 				.meta-info {
 					display: contents;
 				}
-				.sep {
-					display: none;
-				}
 				.meta-info > span,
-				.meta-info > a {
-					display: block;
-					margin-bottom: 2px;
+				.job-head {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+				.meta-group {
+					text-align: left;
+					margin-top: 2px;
+				}
+				.edu-line {
+					flex-direction: column;
 				}
 			}
 		</style>
@@ -187,14 +223,12 @@
 	<body>
 		<div class="wrapper">
 			<button class="print-btn" onclick="window.print()">Print PDF</button>
+
 			<header>
 				<div class="header-content">
-					<div class="name">Shaoqiu (Chiul) Zheng</div>
-					<div class="meta-info">
-						<span class="role">Senior Frontend Dev (5+ Yrs)</span>
-
-						<span class="status">1st-Year Student @ Georgian College</span>
-						<a href="mailto:chiul.zheng@outlook.com">Email</a>
+					<div class="name">
+						<span>Shaoqiu (Chiul) Zheng</span>
+						<a href="mailto:chiul.zheng@outlook.com">chiul.zheng@outlook.com</a>
 						<a
 							href="https://linkedin.com/in/chiul-zheng-frontend"
 							target="_blank"
@@ -202,39 +236,81 @@
 						>
 						<a href="https://github.com/meooxx" target="_blank">GitHub</a>
 					</div>
+					<div class="meta-info">
+						<span class="role"
+							>Frontend | React/React-Native | 5+ Years Industry Experience</span
+						>
+					</div>
 				</div>
 			</header>
+
+			<section>
+				<h2>Education</h2>
+				<div class="edu-line">
+					<span class="edu-status"
+						><strong>Computer Programming</strong>(Diploma, In Progress - Year
+						1) Georgian College</span
+					>
+					<span style="color: #555">Barrie, ON</span>
+				</div>
+				<div class="edu-line" style="margin-bottom: 0">
+					<span
+						><strong>B.S. Computer Science</strong>(Completed) | Nanjing
+						University of Posts & Telecom</span
+					>
+					<span style="color: #555">Nanjing, China</span>
+				</div>
+			</section>
 
 			<section>
 				<h2>Technical Skills</h2>
 				<ul>
 					<li>
-						<strong>Frontend & Mobile:</strong> JavaScript (ES6+),
-						<strong>TypeScript</strong>, <strong>React Native</strong>,
-						<strong>Next.js</strong>, Vue.js (2/3), HTML5, CSS3, Zustand, Redux,
-						SWR.
+						<strong>Frontend & Mobile:</strong>
+						<strong>Javascript(ES6+)</strong>, <strong>TypeScript</strong>,
+						<strong>React Native</strong>, <strong>Next.js</strong>,
+						<strong>Vue.js (2/3)</strong>, HTML5, CSS3, Zustand, Redux, SWR.
 					</li>
 					<li>
-						<strong>Mobile Infrastructure:</strong> <strong>Expo (EAS)</strong>,
-						<strong>Expo Updates</strong>, <strong>Sentry</strong> (Error
-						Tracking), Internationalization (<strong>i18n</strong>).
+						<strong>Mobile Infrastructure:</strong> Expo (EAS), Expo Updates,
+						Sentry, Internationalization (i18n).
 					</li>
 					<li>
-						<strong>CS Fundamentals:</strong>
-						<strong>Data Structures & Algorithms</strong>,
-						<strong>Network Protocols</strong> (HTTP/TCP/IP, WebSocket, DNS).
+						<strong>Fundamentals:</strong>
+						Solid understanding of Data Structures & Algorithms, Network
+						Protocols (HTTP/HTTPS, RESTful APIs).
 					</li>
+
 					<li>
-						<strong>DevOps & Tooling:</strong> Git, CI/CD,
-						<strong>Network Debugging (Charles)</strong>, CLI Tool Development,
-						Easy-Mock, Node.js.
+						<strong>DevOps & Tooling:</strong> Git, CI/CD, Network Debugging
+						(Charles), <strong>Node.js</strong> (Author of 130+ Star Crawler &
+						30+ Star CLI).
 					</li>
 				</ul>
 			</section>
 
 			<section>
+				<div class="job-item">
+					<div class="job-head">
+						<div>
+							<span class="company-name">Educational & Career Transition</span>
+							<span class="job-title"></span>
+						</div>
+						<div class="meta-group">
+							<span class="meta-loc">China & Canada</span>
+							<span>2024 – Dec 2025</span>
+						</div>
+					</div>
+					<ul>
+						<li>
+							Completed B.S. Computer Science degree and managed international
+							relocation to Canada to pursue further education at Georgian
+							College, while actively expanding backend proficiency to
+							transition into a Full-Stack role.
+						</li>
+					</ul>
+				</div>
 				<h2>Professional Experience</h2>
-
 				<div class="job-item">
 					<div class="job-head">
 						<div>
@@ -243,39 +319,32 @@
 						</div>
 						<div class="meta-group">
 							<span class="meta-loc">Shanghai</span>
-							<span>2022 – 2023</span>
+							<span>2022 – 2023.11</span>
 						</div>
 					</div>
 					<ul>
 						<li>
-							<strong>Architected and launched</strong> a vendor sales
-							application from scratch using
-							<strong>React Native & Expo</strong>. Managed the entire lifecycle
-							from development to <strong>App Store submission</strong> using
-							<strong>Expo EAS</strong>.
+							Architected and launched a vendor sales application from scratch
+							using <strong>React Native(Typescript) & Expo</strong>,
+							implementing core modules including auth, infinite-scroll product
+							catalog, shopping cart, and order management with i18n support.
+							Managed the entire lifecycle from development to App Store
+							submission using Expo EAS.
 						</li>
 						<li>
-							Developed and deployed a custom
-							<strong>Webhook Service</strong> to track the packaging process,
-							automatically pushing real-time build status to the team's IM
-							platforms.
+							Developed and deployed a lightweight Golang Webhook Service to
+							track the packaging process, automatically pushing real-time build
+							status to the team's IM platforms.
 						</li>
 						<li>
 							Integrated <strong>Expo Updates</strong> for instant hotfixes and
 							utilized <strong>Sentry</strong> with Source Maps for real-time
 							crash reporting.
 						</li>
+
 						<li>
-							Implemented core modules including <strong>Shopping Cart</strong>,
-							<strong>Order Management</strong>, and a scalable
-							<strong>i18n</strong> system. Engineered complex
-							<strong>Canvas rendering</strong> for social sharing features.
-						</li>
-						<li>
-							Built a responsive sales analysis dashboard using
-							<strong>Next.js</strong> and <strong>TypeScript</strong>,
-							utilizing <strong>SWR</strong> for data fetching and
-							<strong>Zustand</strong> for state management.
+							Built a sales analysis dashboard using Next.js, SWR, Zustand and
+							TypeScript, integrating ECharts for data visualization.
 						</li>
 					</ul>
 				</div>
@@ -295,15 +364,18 @@
 					</div>
 					<ul>
 						<li>
-							Engineered a custom <strong>Node.js CLI tool</strong> to
-							standardize project structure, decouple local environments, and
-							enable seamless <strong>CI/CD integration</strong> for a team of
+							Maintained and optimized the mobile mall and Shopping Cart modules
+							within the application using <strong>React Native</strong>.
+						</li>
+						<li>
+							Engineered a custom Node.js CLI tool to decouple local
+							environments and enable seamless CI/CD integration for a team of
 							30+ developers.
 						</li>
 						<li>
-							Built and maintained comprehensive merchant and logistics
-							management systems using the
-							<strong>Vue.js Ecosystem</strong> (Vuex, Element UI).
+							Built and maintained merchant and logistics management systems
+							using the
+							<strong>Vue.js Ecosystem</strong> (Pinia, Element UI).
 						</li>
 					</ul>
 				</div>
@@ -321,27 +393,15 @@
 					</div>
 					<ul>
 						<li>
-							Developed core web applications for
-							<strong>a leading used car trading platform</strong> handling high
-							traffic volume.
+							Developed core web applications for a leading used car trading
+							platform handling high traffic volume.
 						</li>
 						<li>
-							Deployed and customized the open-source
-							<strong>Easy-Mock</strong> system to decouple frontend/backend
-							dependencies, significantly accelerating the team's iteration
-							speed.
+							Deployed and customized the open-source Easy-Mock system to
+							decouple frontend/backend dependencies, significantly boosting the
+							team's development efficiency.
 						</li>
 					</ul>
-				</div>
-			</section>
-
-			<section>
-				<h2>Education</h2>
-				<div class="edu-line" style="margin-bottom: 0">
-					<span
-						><strong>B.S. Computer Science</strong> | Nanjing University of
-						Posts & Telecommunications</span
-					>
 				</div>
 			</section>
 		</div>
