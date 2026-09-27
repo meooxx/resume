@@ -6,10 +6,10 @@
 		<meta name="description" content="Resume of Shaoqiu Zheng" />
 		<title>Shaoqiu_Zheng_Software_Developer_Resume</title>
 		<style>
-			/* --- CSS Variables (:root) --- 
-           Using variables ensures theme consistency and easy maintenance. 
-           I have reused your defined variables as requested.
-        */
+			/* --- CSS Variables (:root) ---
+			           Using variables ensures theme consistency and easy maintenance.
+			           I have reused your defined variables as requested.
+			        */
 			:root {
 				--main: #000;
 				--text: #222;
@@ -22,8 +22,9 @@
 			/* --- Global Reset & Typography --- */
 			body {
 				font-family:
-					-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-					Arial, sans-serif;
+					-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+					'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+					'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 				line-height: 1.4;
 				color: var(--text);
 				font-size: 9.5pt;
@@ -116,8 +117,13 @@
 				flex-wrap: wrap;
 			}
 			.header-location > span:not(.separator),
-			.header-location > a {
+			.header-location > .email {
 				white-space: nowrap;
+				text-align: left;
+				word-break: keep-all;
+				letter-spacing: 0;
+				display: inline;
+				word-spacing: 0;
 			}
 			.meta-info {
 				font-size: 0.85rem;
@@ -309,13 +315,13 @@
 					</h1>
 					<address class="header-location">
 						<span>Barrie, ON</span>
-						<span class="print-only"></span>
+
 						<span class="separator" aria-hidden="true">|</span>
-						<a href="mailto:resume.zheng@outlook.com"
-							>resume.zheng@outlook.com</a
+						<span class="email">resume.zheng@outlook.com</span>
+						<span class="separator" aria-hidden="true">|</span>
+						<a class="github" href="https://github.com/meooxx"
+							>github.com/meooxx</a
 						>
-						<span class="separator" aria-hidden="true">|</span>
-						<a href="https://github.com/meooxx">github.com/meooxx</a>
 					</address>
 
 					<div class="meta-info">
@@ -431,8 +437,8 @@
 								submissions using Expo EAS.
 							</li>
 							<li>
-								Architected a lightweight <strong>Go</strong> webhook service to track
-								Expo EAS build status and deliver real-time updates to the
+								Architected a lightweight <strong>Go</strong> webhook service to
+								track Expo EAS build status and deliver real-time updates to the
 								team's messaging platform.
 							</li>
 							<li>
