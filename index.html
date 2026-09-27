@@ -230,7 +230,14 @@
 				@page {
 					margin: 0.3in;
 				}
-
+				.header-location {
+					white-space: nowrap;
+					font-family: Arial, Helvetica, sans-serif;
+					font-variant-ligatures: none;
+					font-feature-settings:
+						'liga' 0,
+						'kern' 0;
+				}
 				.print-btn {
 					display: none;
 				}
@@ -245,6 +252,17 @@
 
 				body {
 					padding: 0;
+					font-size: 10pt;
+					line-height: 1.45;
+				}
+
+				.role,
+				h2 {
+					font-size: 0.75rem;
+				}
+
+				.item-meta {
+					font-size: 8.5pt;
 				}
 
 				a {
@@ -315,7 +333,6 @@
 					</h1>
 					<address class="header-location">
 						<span>Barrie, ON</span>
-
 						<span class="separator" aria-hidden="true">|</span>
 						<span class="email">resume.zheng@outlook.com</span>
 						<span class="separator" aria-hidden="true">|</span>
@@ -353,7 +370,7 @@
 							<strong>Bachelor of Computer Science</strong> - Nanjing University
 							of Posts and Telecommunications
 						</span>
-						<span class="item-meta">Nanjing, China | Graduated 2025</span>
+						<span class="item-meta">Nanjing, China | Degree awarded 2025</span>
 					</div>
 
 					<!-- <article aria-labelledby="transition-heading">
@@ -395,18 +412,18 @@
 						</li>
 						<li>
 							<strong>Fundamentals:</strong>
-							Data Structures &amp; Algorithms, Network Protocols (HTTP/HTTPS,
-							RESTful APIs).
+							Data Structures &amp; Algorithms, Network Protocols (TCP/IP,
+							HTTP/HTTPS), RESTful APIs.
 						</li>
 						<li>
 							<strong>DevOps &amp; Tooling:</strong>
-							Git, CI/CD, GCP (App Engine), Network Debugging (Charles), Node.js
-							(Created open-source web crawler [130+ Stars] and project
-							migration CLI tools [30+ Stars]).
+							Git, CI/CD, GCP (Google Cloud Platform), Network Debugging
+							(Charles), Node.js (Created open-source web crawler [130+ Stars]
+							and project migration CLI tools [30+ Stars]).
 						</li>
 						<li>
 							<strong>Backend &amp; SQL:</strong>
-							Node.js, Go (Services &amp; Tooling), PostgreSQL, SQL, PHP.
+							Node.js, Golang (Services &amp; Tooling), PostgreSQL, SQL, PHP.
 						</li>
 					</ul>
 				</section>
@@ -418,7 +435,7 @@
 						<div class="item-head">
 							<span>
 								<span class="org-name" id="zmetaport-heading">Zmetaport</span>
-								<span class="job-title">(Frontend Developer)</span>
+								<span class="job-title">(Software Developer)</span>
 							</span>
 							<div class="item-meta">
 								<span>Shanghai</span>
@@ -430,16 +447,16 @@
 						<ul>
 							<li>
 								Built and shipped a vendor sales app from scratch using
-								<strong>React Native (TypeScript) &amp; Expo,</strong>
-								implementing core modules (Authentication, Product Catalog,
-								Cart, and Order Management) with i18n. Managed the entire
-								lifecycle from development to App Store &amp; Google Play
-								submissions using Expo EAS.
+								<strong>React Native (TypeScript) & Expo,</strong> implementing
+								core modules (Authentication, Product Catalog, Cart, and Order
+								Management) with i18n localization for multiple international
+								markets. Managed the entire lifecycle from development to App
+								Store & Google Play submissions using Expo EAS.
 							</li>
 							<li>
-								Architected a lightweight <strong>Go</strong> webhook service to
-								track Expo EAS build status and deliver real-time updates to the
-								team's messaging platform.
+								Architected a lightweight <strong>Golang</strong> webhook
+								service to track Expo EAS build status and deliver real-time
+								updates to the team's messaging platform.
 							</li>
 							<li>
 								Integrated <strong>Expo Updates</strong> for hotfixes and
@@ -472,9 +489,9 @@
 						<ul>
 							<li>
 								Engineered core mobile mall and shopping cart modules in a
-								hybrid <strong>React Native</strong> app, resolving complex
-								cross-screen state synchronization and optimizing virtualized
-								list rendering to reduce scroll lag.
+								hybrid <strong>React Native</strong> app serving 1M+ registered
+								users. Designed shared cart state across screens and optimized
+								virtualized product lists to reduce scroll lag.
 							</li>
 							<li>
 								Developed a custom <strong>Node.js CLI tool</strong> to enable
@@ -482,7 +499,9 @@
 							</li>
 							<li>
 								Implemented merchant management systems using the
-								<strong>Vue.js Ecosystem</strong> (Router, Pinia, Element UI).
+								<strong>Vue.js Ecosystem</strong> (Router, Pinia, Element UI) to
+								manage product catalogs and orders for airport travel retail
+								partners.
 							</li>
 						</ul>
 					</article>
@@ -505,7 +524,8 @@
 						<ul>
 							<li>
 								Maintained the core application for a leading used car trading
-								platform and contributed to its progressive migration to the
+								platform supporting 1,000+ employees across 100+ retail stores
+								nationwide, and contributed to its progressive migration to the
 								Vue.js ecosystem.
 							</li>
 							<li>
